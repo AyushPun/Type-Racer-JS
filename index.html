@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TYPE RACER</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--Robot Font-->
+    <script>
+      //refresh script
+      function refresh() {
+        location.reload();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Type Racer</h1>
+
+    <p id="text">
+      <!-- Text shown here -->
+    </p>
+
+    <div class="ready">
+      <!--Input box-->
+      <input type="text" id="box" placeholder="Start typing here!" />
+      <button onclick="refresh()">Next</button>
+    </div>
+
+    <div
+      style="
+        font-size: 13px;
+        font-weight: 200;
+        text-align: right;
+        margin-top: 13%;
+      "
+      id="footer"
+    >
+      <!--Footer and Resolution-->
+      <h3 id="res" style="font-weight: 100"><!-- Resolution -->Hello</h3>
+      <p>Made By Ayush Pun</p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
