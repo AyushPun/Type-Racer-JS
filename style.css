@@ -13,6 +13,22 @@ h1 {
   color: aqua;
 }
 
+#timer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+
+#timer input {
+  width: 5%;
+  padding: 5px 10px;
+  margin: 6px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+}
+
 #text {
   font-size: 40px;
   width: 90%;

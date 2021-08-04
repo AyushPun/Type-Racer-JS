@@ -42,14 +42,19 @@ var modTxt = "",
   str,
   index = 0,
   total = words.length,
-  count = 0;
+  count = 0,
+  timecheck = true;
+
 
 txt.innerHTML = `<span style = "color: #224ce3;">${words[0]}</span>`; //0th index element will show
 for (let i = 1; i < words.length; i++) {
   txt.innerHTML += " " + words[i];
 }
 
+
+//Typing
 bx.addEventListener("keydown", (e) => {
+
   if (index != words.length && e.key == " ") {
     str = bx.value.trim(); //str takes userinput
     bx.value = ""; //Flush input
@@ -78,13 +83,48 @@ bx.addEventListener("keydown", (e) => {
     }
   }
   if (index == total) {
-    txt.innerHTML = "";
-    txt.innerHTML = (`<span style = "color: #224ce3;">Total words -> ${total}</span><br>
-    <span style = "color: #10916b;">Correct words -> ${count}</span><br>
-    <span style = "color: #d42424;">Wrong words -> ${total-count}</span>`);
+   result();  
+   stop();
+   bx.disabled = true;
   }
 });
 
+//Timer
+bx.addEventListener('click', () => {
+    min.value = 00;
+    sec.value = 00;
+    
+    interval_ID = setInterval(() => {
+      if(sec.value != 59 && min.value != 1) {
+        sec.value = parseInt(sec.value) + 1;
+      }
+      else if(sec.value == 59) {
+        min.value = 1;
+        sec.value = 0;
+        result();
+      }
+    }, 1000)
+})
+
+//Timer declarations
+var min = document.getElementById('min');
+var sec = document.getElementById('sec');
+
+var interval_ID;
+
+var stop = () => {
+  clearInterval(interval_ID);
+}
+
+//RESULT
+var result = () => {
+  let tt = (parseInt(min.value)*60)+parseInt(sec.value);
+  txt.innerHTML = "";
+  txt.innerHTML = (`<span style = "color: #224ce3;font-weight: 100; display: block; font-size: 30px;">Total words -> ${total}</span>
+  <span style = "color: #10916b;font-weight: 100; display: block; font-size: 30px;">Correct words -> ${count}</span>
+  <span style = "color: #d42424;font-weight: 100; display: block; font-size: 30px;">Wrong words -> ${index-count}</span>
+  <span style = "color: #f2b138;font-weight: 100; display: block; font-size: 30px;">Typing Speed -> ${Math.floor((index/tt)*60)}wpm</span>`);
+}
 
 // Resolution script
 let res = document.getElementById("res");
@@ -92,3 +132,9 @@ res.innerText = window.innerWidth + " * " + window.innerHeight;
 window.addEventListener("resize", () => {
   res.innerText = window.innerWidth + " * " + window.innerHeight;
 });
+
+//Refresh after clicking on next
+function refresh() {
+  location.reload();
+  bx.disabled = false;
+}
