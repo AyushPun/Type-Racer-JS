@@ -53,9 +53,8 @@ for (let i = 1; i < words.length; i++) {
 
 
 //Typing
-bx.addEventListener("keydown", (e) => {
-
-  if (index != words.length && e.key == " ") {
+bx.addEventListener("input", (e) => {
+  if (index != words.length && e.data == " ") {
     str = bx.value.trim(); //str takes userinput
     bx.value = ""; //Flush input
 

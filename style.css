@@ -17,16 +17,20 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  
 }
 
 #timer input {
-  width: 5%;
+  width: 65px;
   padding: 5px 10px;
   margin: 6px 0;
   box-sizing: border-box;
   border-radius: 10px;
   text-align: center;
+  color: aqua;
+}
+
+#timer input::placeholder {
+  color: rgb(214, 209, 209);
 }
 
 #text {
@@ -45,9 +49,16 @@ h1 {
   justify-content: center;
 }
 
+@media(max-width: 495px) {
+  .ready {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 #box {
   box-sizing: border-box;
-  width: 22%;
+  width: 300px;
   padding: 12px 20px;
   font-size: 30px;
   margin: 10px;
